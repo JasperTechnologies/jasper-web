@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/jasper-web/static/css/main.2cce8147.chunk.css",
+    "main.js": "/jasper-web/static/js/main.4382c556.chunk.js",
+    "main.js.map": "/jasper-web/static/js/main.4382c556.chunk.js.map",
+    "runtime~main.js": "/jasper-web/static/js/runtime~main.309bfa4f.js",
+    "runtime~main.js.map": "/jasper-web/static/js/runtime~main.309bfa4f.js.map",
+    "static/js/2.41efbd85.chunk.js": "/jasper-web/static/js/2.41efbd85.chunk.js",
+    "static/js/2.41efbd85.chunk.js.map": "/jasper-web/static/js/2.41efbd85.chunk.js.map",
+    "index.html": "/jasper-web/index.html",
+    "precache-manifest.143505aaa6a7975e122e819a68025cdb.js": "/jasper-web/precache-manifest.143505aaa6a7975e122e819a68025cdb.js",
+    "service-worker.js": "/jasper-web/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/jasper-web/static/css/main.2cce8147.chunk.css.map",
+    "static/media/logo.svg": "/jasper-web/static/media/logo.5d5d9eef.svg"
+  }
+}
