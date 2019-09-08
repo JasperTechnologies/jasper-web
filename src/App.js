@@ -1,5 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -13,6 +14,9 @@ import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import logo from './logo.png';
+import ipad from './ipadcomp.png'
+import ipadstand from './ipadstand.jpg'
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 function Copyright() {
   return (
@@ -40,8 +44,17 @@ const useStyles = makeStyles(theme => ({
       listStyle: 'none',
     },
   },
+  centerContainer: {
+    display: 'flex', 
+    justifyContent: 'center',
+    paddingBottom: "5rem"
+  },
   logo: {
     width: '300px'
+  },
+  ipad: {
+    width: '40rem',
+    alignSelf: 'center'
   },
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -121,14 +134,19 @@ export default function Pricing() {
           Ordering Just Became Simple
         </Typography>
         <Typography variant="h5" align="center" color="textSecondary" component="p">
-          Jasper enables a fast and magical self-service option for ordering food at restaurants.
+          Jasper enables an automated fast and magical self-service option for ordering food at restaurants.
         </Typography>
       </Container>
+      <Container className={classes.centerContainer}>
+        <img alt='jasper sample menu' className={classes.ipad} src={ipad}></img>
+        <br></br>
+        <br></br>
+      </Container>
       {/* End hero unit */}
-      <Container maxWidth="md" component="main" style={{display: 'flex', justifyContent: 'center'}}>
+      <Container maxWidth="md" component="main" className={classes.centerContainer}>
           {tiers.map(tier => (
             // Enterprise card is full width at sm breakpoint
-            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
+            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={8}>
               <Card>
                 <CardHeader
                   title='Why Jasper?'
@@ -140,12 +158,13 @@ export default function Pricing() {
                   <div className={classes.cardPricing}>
                     <Typography component="h2" variant="h3" color="textPrimary">
                     </Typography>
-                    <Typography variant="h6" color="textSecondary">
+                    <Typography variant="h4" color="textSecondary">
                     </Typography>
                   </div>
                   <ul>
                     {tier.description.map(line => (
-                      <Typography component="li" variant="subtitle1" align="left" key={line}>
+                      <Typography component="li" variant="h5" align="left" key={line}>
+                        <CheckCircleIcon style={{color: 'green', flex: 1}}></CheckCircleIcon>
                         {line}
                       </Typography>
                     ))}
@@ -159,6 +178,25 @@ export default function Pricing() {
               </Card>
             </Grid>
           ))}
+      </Container>
+      <Container maxWidth="sm" component="main" className={classes.heroContent}>
+        <Typography component="h1" variant="h2" align="center" color="textPrimary">
+          Replace Cashiers with a Wonderful Experience
+        </Typography>
+      </Container>
+      <Container className={classes.centerContainer}>
+        <img alt='jasper sample menu' className={classes.ipad} src={ipadstand}></img>
+        <br></br>
+        <br></br>
+      </Container>
+      <Container maxWidth="md" component="footer" className={classes.footer}>
+        <Box mt={5}>
+          <Typography variant="body2" color="textSecondary" align="center">
+            Contact: Team@usejasper.com
+          </Typography>
+          <br></br>
+          <Copyright />
+        </Box>
       </Container>
     </React.Fragment>
   );
