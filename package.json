@@ -2,7 +2,7 @@
   "name": "jasper-web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jaspertechnologies.github.io/jasper-web/",
+  "homepage": "https://usejasper.com",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
