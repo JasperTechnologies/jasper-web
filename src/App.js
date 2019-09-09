@@ -156,11 +156,8 @@ export default function App(props) {
       </AppBar>
       {/* Hero unit */}
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
-        <Typography component="h1" variant="h1" align="center" color="textPrimary" gutterBottom>
-          Ordering
-        </Typography>
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          Just Became Simple
+          Ordering Just Became Simple
         </Typography>
         <Typography variant="body1" align="center" color="textSecondary" component="p">
           Jasper is a magical self-service option for ordering food at restaurants
