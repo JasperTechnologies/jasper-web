@@ -279,9 +279,11 @@ export default function App(props) {
       </Container>
       <Container maxWidth="md" component="footer" className={classes.footer}>
         <Box mt={5}>
-          <Typography variant="body2" color="textSecondary" align="center">
-            Contact: Team@usejasper.com
-          </Typography>
+          {
+            false && <Typography variant="body2" color="textSecondary" align="center">
+              Contact: Team@usejasper.com
+            </Typography>
+          }
           <br></br>
           <Copyright />
         </Box>
