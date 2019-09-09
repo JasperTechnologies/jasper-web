@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -28,7 +28,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit">
         Jasper Technologies
       </Link>{' '}
       {new Date().getFullYear()}
@@ -53,7 +53,8 @@ const useStyles = makeStyles(theme => ({
   centerContainer: {
     display: 'flex',
     justifyContent: 'center',
-    paddingBottom: "5rem"
+    paddingBottom: "5rem",
+    paddingTop: "5rem"
   },
   logo: {
     width: '300px'
@@ -124,8 +125,16 @@ const useStyles = makeStyles(theme => ({
 //   },
 // ];
 
-export default function Pricing() {
+const scrollToRef = (ref) => {
+  window.scrollTo({
+    top: ref.current.offsetTop,
+    behavior: 'smooth'
+  });
+}   // General scroll to element function
+
+export default function App(props) {
   const classes = useStyles();
+  const benefitContainerRef = useRef(null);
 
   return (
     <React.Fragment>
@@ -134,12 +143,14 @@ export default function Pricing() {
         <Toolbar className={classes.toolbar}>
           <img alt='jasper company logo' className={classes.logo} src={logo}></img>
           <nav>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+            <Link variant="button" color="textPrimary" onClick={() => scrollToRef(benefitContainerRef)} className={classes.link}>
               Benefits
             </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
-              Contact Us
-            </Link>
+            {
+              false && <Link variant="button" color="textPrimary" className={classes.link}>
+                Contact Us
+              </Link>
+            }
           </nav>
         </Toolbar>
       </AppBar>
@@ -165,6 +176,7 @@ export default function Pricing() {
         maxWidth="md"
         component="main"
         className={classes.centerContainer}
+        ref={benefitContainerRef}
       >
         <Grid
           xs="12"
