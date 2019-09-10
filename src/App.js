@@ -88,6 +88,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: '50px',
   },
   experienceGrid: {
+    alignItems: 'center',
     minHeight: '250px',
   },
   experienceContainer: {
@@ -199,7 +200,6 @@ export default function App(props) {
                 xs="12"
                 sm="6"
                 container
-                align="center"
                 direction="column"
                 className={classes.experienceGrid}
               >
@@ -217,7 +217,6 @@ export default function App(props) {
                 xs="12"
                 sm="6"
                 container
-                align="center"
                 direction="column"
                 className={classes.experienceGrid}
               >
@@ -235,7 +234,6 @@ export default function App(props) {
                 xs="12"
                 sm="6"
                 container
-                align="center"
                 direction="column"
                 className={classes.experienceGrid}
               >
@@ -253,7 +251,6 @@ export default function App(props) {
                 xs="12"
                 sm="6"
                 container
-                align="center"
                 direction="column"
                 className={classes.experienceGrid}
               >
