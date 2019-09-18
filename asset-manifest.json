@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.90008055.chunk.css",
+    "main.js": "/static/js/main.a1aded59.chunk.js",
+    "main.js.map": "/static/js/main.a1aded59.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.285721cb.js",
+    "runtime~main.js.map": "/static/js/runtime~main.285721cb.js.map",
+    "static/js/2.5cd96270.chunk.js": "/static/js/2.5cd96270.chunk.js",
+    "static/js/2.5cd96270.chunk.js.map": "/static/js/2.5cd96270.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.eb5a83100ae3665f964841c03310f56a.js": "/precache-manifest.eb5a83100ae3665f964841c03310f56a.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.90008055.chunk.css.map": "/static/css/main.90008055.chunk.css.map",
+    "static/media/ipadcomp.png": "/static/media/ipadcomp.9009dc40.png",
+    "static/media/ipadstand.jpg": "/static/media/ipadstand.9783219a.jpg",
+    "static/media/logo.png": "/static/media/logo.2b8098fa.png"
+  }
+}
