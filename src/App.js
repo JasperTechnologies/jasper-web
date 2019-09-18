@@ -168,7 +168,7 @@ export default function App(props) {
             Ordering Just Became Simple
           </Typography>
           <Typography variant="body1" align="center" color="textSecondary" component="p">
-            Jasper is a magical self-service option for ordering food at restaurants
+            Jasper is a automated self-service option for ordering food at restaurants
           </Typography>
         </Grid>
         <Grid xs="8" className={classes.centerContainer}>
@@ -272,7 +272,7 @@ export default function App(props) {
             Jasper Experiences
           </Typography>
           <Typography variant="body1" align="center" color="textSecondary" component="p">
-            Jasper is offering an in-door dining automation for restaurant owners
+            Jasper offers cashier and order automation for fast-service restaurants
           </Typography>
         </Grid>
         <Grid xs="8" className={classes.centerContainer}>
