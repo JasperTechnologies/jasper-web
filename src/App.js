@@ -1,28 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import logo from './logo.png';
-import ipad from './ipadcomp.png'
-import ipadstand from './ipadstand.jpg'
-
-// icons
-import Check from '@material-ui/icons/Check';
-import SupervisorAccount from '@material-ui/icons/SupervisorAccount';
-import AvTimer from '@material-ui/icons/AvTimer';
-import Search from '@material-ui/icons/Search';
-import Money from '@material-ui/icons/Money';
+import HomeBody from './HomeBody'
+import PrivacyBody from './PrivacyBody'
 
 function Copyright() {
   return (
@@ -117,22 +105,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
-//
-// const tiers = [
-//   {
-//     title: 'Pro',
-//     subheader: 'Most popular',
-//     price: '15',
-//     description: [
-//       'Decrease Labor Costs',
-//       'Decrease Customer Time in Line',
-//       'Upsell Menu Items',
-//       'Increase Tips',
-//     ],
-//     buttonText: 'Get started',
-//     buttonVariant: 'contained',
-//   },
-// ];
 
 const scrollToRef = (ref) => {
   window.scrollTo({
@@ -144,6 +116,15 @@ const scrollToRef = (ref) => {
 export default function App(props) {
   const classes = useStyles();
   const benefitContainerRef = useRef(null);
+  const [ currentPage, updateCurrentPage ] = useState("home")
+
+  function renderCurrentPage(){
+    if(currentPage === 'home'){
+      return <HomeBody bodyRef={benefitContainerRef}/>
+    } else {
+      return <PrivacyBody/>
+    }
+  }
 
   return (
     <React.Fragment>
@@ -151,9 +132,19 @@ export default function App(props) {
       <AppBar position="static" color="white" elevation={0} className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <img alt='jasper company logo' className={classes.logo} src={logo}></img>
-          <Button variant="button" color="textPrimary" onClick={() => scrollToRef(benefitContainerRef)} className={classes.link}>
-            Benefits
-          </Button>
+          <div>
+            <Button variant="button" color="textPrimary" onClick={() => {
+              updateCurrentPage('home')
+              setTimeout(() => scrollToRef(benefitContainerRef), 50)
+              }} className={classes.link}>
+              Benefits
+            </Button>
+            <Button variant="button" color="textPrimary" onClick={() => {
+              updateCurrentPage('privacy')
+              }} className={classes.link}>
+              Privacy Policy
+            </Button>
+          </div>
           {
             false && <Button variant="button" color="textPrimary" className={classes.link}>
               Contact Us
@@ -162,125 +153,7 @@ export default function App(props) {
         </Toolbar>
       </AppBar>
       {/* Hero unit */}
-      <Grid container justify="center">
-        <Grid xs="8" className={classes.heroContent}>
-          <Typography component="h1" variant="h2" className={classes.header1} align="center" color="textPrimary" gutterBottom>
-            Ordering Just Became Simple
-          </Typography>
-          <Typography variant="body1" align="center" color="textSecondary" component="p">
-            Jasper is a automated self-service option for ordering food at restaurants
-          </Typography>
-        </Grid>
-        <Grid xs="8" className={classes.centerContainer}>
-          <img alt='jasper sample menu' className={classes.ipad} src={ipad}></img>
-          <br></br>
-          <br></br>
-        </Grid>
-        <Grid
-          xs="8"
-          className={classes.centerContainer}
-          ref={benefitContainerRef}
-        >
-          <Grid
-            xs="12"
-            direction="column"
-          >
-            <Grid xs="12">
-              <Typography component="h1" variant="h2" className={classes.header1} align="center" color="textPrimary" gutterBottom>
-                Jasper Benefits
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              xs="12"
-              direction="row"
-              className={classes.experienceContainer}
-            >
-              <Grid
-                xs="12"
-                sm="6"
-                container
-                direction="column"
-                className={classes.experienceGrid}
-              >
-                <SupervisorAccount className={classes.experienceIcon} />
-                <Typography variant="body1" align="center" gutterBottom>
-                  Reduce Labor Costs
-                </Typography>
-                <Grid xs="8">
-                  <Typography variant="body2" align="center" gutterBottom>
-                    Jasper requires zero employees to take orders, process payments, and leaves customers with smiles. Get the same job done for less
-                  </Typography>
-                </Grid>
-              </Grid>
-              <Grid
-                xs="12"
-                sm="6"
-                container
-                direction="column"
-                className={classes.experienceGrid}
-              >
-                <AvTimer className={classes.experienceIcon} />
-                <Typography variant="body1" align="center" gutterBottom>
-                  Save Customer Time
-                </Typography>
-                <Grid xs="8">
-                  <Typography variant="body2" align="center" gutterBottom>
-                    Customers love pictures. Our visuals and experience show how delicious the menu items are leaving potential buyers with excitement
-                  </Typography>
-                </Grid>
-              </Grid>
-              <Grid
-                xs="12"
-                sm="6"
-                container
-                direction="column"
-                className={classes.experienceGrid}
-              >
-                <Search className={classes.experienceIcon} />
-                <Typography variant="body1" align="center" gutterBottom>
-                  Increase Sales
-                </Typography>
-                <Grid xs="8">
-                  <Typography variant="body2" align="center" gutterBottom>
-                    Menus seem to be getting larger and larger, and customers are increasingly confused by them. Jasper helps speed up this process with seamless menu item discovery
-                  </Typography>
-                </Grid>
-              </Grid>
-              <Grid
-                xs="12"
-                sm="6"
-                container
-                direction="column"
-                className={classes.experienceGrid}
-              >
-                <Money className={classes.experienceIcon} />
-                <Typography variant="body1" align="center" gutterBottom>
-                  Boost Tips
-                </Typography>
-                <Grid xs="8">
-                  <Typography variant="body2" align="center" gutterBottom>
-                    People tend to tip more when politely suggested to do so with friendly default tip amounts
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid xs="8" className={classes.heroContent}>
-          <Typography component="h1" variant="h2" className={classes.header1} align="center" color="textPrimary" gutterBottom>
-            Jasper Experiences
-          </Typography>
-          <Typography variant="body1" align="center" color="textSecondary" component="p">
-            Jasper offers cashier and order automation for fast-service restaurants
-          </Typography>
-        </Grid>
-        <Grid xs="8" className={classes.centerContainer}>
-          <img alt='jasper sample menu' className={classes.ipad} src={ipadstand}></img>
-          <br></br>
-          <br></br>
-        </Grid>
-      </Grid>
+      {renderCurrentPage()}
       <Container maxWidth="md" component="footer" className={classes.footer}>
         <Box mt={5}>
           {
